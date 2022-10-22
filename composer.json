@@ -1,0 +1,61 @@
+{
+    "name": ":vendor_slug/:package_slug",
+    "description": ":package_description",
+    "keywords": [
+        ":vendor_name",
+        ":package_slug",
+        "laravel"
+    ],
+    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": ":author_name",
+            "email": "author@domain.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/contracts": "^9.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "pestphp/pest": "^1.20",
+        "orchestra/testbench": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            ":vendor_namespace\\:package_class_name\\": "src",
+            ":vendor_namespace\\:package_class_name\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            ":vendor_namespace\\:package_class_name\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                ":vendor_namespace\\:package_class_name\\:package_class_nameServiceProvider"
+            ],
+            "aliases": {
+                ":package_class_name": ":vendor_namespace\\:package_class_name\\Facades\\:package_class_name"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
