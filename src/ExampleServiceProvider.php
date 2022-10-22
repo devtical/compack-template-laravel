@@ -33,9 +33,9 @@ class :package_class_nameServiceProvider extends ServiceProvider
     {
         // $this->mergeConfigFrom(__DIR__.'/../config/:package_slug.php', ':package_slug');
 
-        // // Register the service the package provides.
+        // Register the service the package provides.
         // $this->app->singleton(':package_slug', function ($app) {
-        //     return new :uc:package;
+        //     return new :package_class_name;
         // });
     }
 
@@ -56,27 +56,32 @@ class :package_class_nameServiceProvider extends ServiceProvider
      */
     protected function bootForConsole(): void
     {
-        // // Publishing the configuration file.
+        // Publishing the configuration file.
         // $this->publishes([
         //     __DIR__.'/../config/:package_slug.php' => config_path(':package_slug.php'),
         // ], ':package_slug.config');
 
-        // // Publishing the views.
-        // /*$this->publishes([
+        // Publishing the migrations.
+        // $this->publishes([
+        //     __DIR__.'/../database/migrations/' => database_path('migrations')
+        // ], ':package_slug.migrations');
+
+        // Publishing the views.
+        // $this->publishes([
         //     __DIR__.'/../resources/views' => base_path('resources/views/vendor/:vendor_slug'),
-        // ], ':package_slug.views');*/
+        // ], ':package_slug.views');
 
-        // // Publishing assets.
-        // /*$this->publishes([
+        // Publishing assets.
+        // $this->publishes([
         //     __DIR__.'/../resources/assets' => public_path('vendor/:vendor_slug'),
-        // ], ':package_slug.views');*/
+        // ], ':package_slug.views');
 
-        // // Publishing the translation files.
-        // /*$this->publishes([
+        // Publishing the translation files.
+        // $this->publishes([
         //     __DIR__.'/../resources/lang' => resource_path('lang/vendor/:vendor_slug'),
-        // ], ':package_slug.views');*/
+        // ], ':package_slug.views');
 
-        // // Registering package commands.
-        // // $this->commands([]);
+        // Registering package commands.
+        // $this->commands([]);
     }
 }
